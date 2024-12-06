@@ -116,3 +116,64 @@ tDado * BuscaDedilhadaEnc(tTabelaEnc *tab, int id){
 int QuantOperacoesEnc(){
     return qOperacoes;
 }
+
+tDado *buscaTransposicaoEnc(tTabelaEnc *tabela, int chave) {
+    qOperacoes = 0;
+    tTabelaEnc *ant = NULL, *ant2 = NULL, *atual = tabela;
+
+    while (atual != NULL) {
+        ++qOperacoes;
+
+        if (atual->dado.id == chave)
+            break;
+
+        ant2 = ant;
+        ant = atual;
+        atual = atual->prox;
+    }
+
+    if (atual == NULL)
+        return NULL;
+
+    if (ant == NULL)
+        return &atual->dado;
+
+    if (ant2 == NULL) {
+        ant->prox = atual->prox;
+        atual->prox = ant;
+        tabela = atual;
+    } else {
+        ant->prox = atual;
+        ant2->prox = atual->prox;
+        atual->prox = ant2;
+    }
+
+    return &atual->dado;
+}
+
+tDado *buscaMovInicioEnd(tTabelaEnc *tabela, int chave) {
+    qOperacoes = 0;
+    tTabelaEnc *atual = tabela, *ant = NULL;
+
+    while (atual != NULL) {
+        ++qOperacoes;
+
+        if (atual->dado.id == chave)
+            break;
+
+        ant = atual;
+        atual = atual->prox;
+    }
+
+    if (atual == NULL)
+        return NULL;
+
+    if (ant == NULL)
+        return &atual->dado;
+
+    ant->prox = atual->prox;
+    atual->prox = tabela->prox;
+    tabela = atual;
+
+    return &atual->dado;
+}
