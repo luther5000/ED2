@@ -16,4 +16,6 @@ extern void AcrescentaElementoIdx(tTabelaIdx *tabela, const tDados *elemento);
 extern int BuscaSequencial(tTabelaIdx *tab, int chave);
 extern int BuscaDedilhada(tTabelaIdx *tab, int chave);
 extern int QuantOperacoes();
+extern int buscaTransposicao(tTabelaIdx *tabela, int chave);
+extern int buscaMovInicio(tTabelaIdx *tabela, int chave);
 #endif

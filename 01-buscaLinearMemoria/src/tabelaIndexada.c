@@ -144,3 +144,67 @@ int BuscaDedilhada(tTabelaIdx *tab, int chave){
 int QuantOperacoes(){
     return qOperacoes;
 }
+
+int buscaTransposicao(tTabelaIdx *tabela, int chave) {
+    qOperacoes = 0;
+    tDados aux;
+
+    int i = 0;
+    for (; i < tabela->nElementos; ++i) {
+        ++qOperacoes;
+        if (tabela->elementos[i].id == chave) {
+            if (i > 0)
+                aux = tabela->elementos[i-1];
+            break;
+        }
+    }
+
+    // Percorreu toda a tabela e não encontrou
+    if (i == tabela->nElementos)
+        return -1;
+
+    if (i == 0)
+        return 0;
+
+    // Alteração do local onde o objeto está
+    tabela->elementos[i-1] = tabela->elementos[i];
+    tabela->elementos[i] = aux;
+
+    // Retorna o novo local do objeto pós alteração
+    return i-1;
+}
+
+int buscaMovInicio(tTabelaIdx *tabela, int chave) {
+    qOperacoes = 0;
+    tDados aux, *aux2;
+
+    int i = 0;
+    for (; i < tabela->nElementos; ++i) {
+        ++qOperacoes;
+        if (tabela->elementos[i].id == chave) {
+            if (i > 0) {
+                aux = tabela->elementos[i];
+                aux2 = &tabela->elementos[i-1];
+            }
+            break;
+        }
+    }
+
+    // Percorreu toda a tabela e não encontrou
+    if (i == tabela->nElementos)
+        return -1;
+
+    if (i > 0) {
+        // Faz o shift de todos os elementos antes de i
+        for (; i > 0; --i) {
+            ++qOperacoes;
+            tabela->elementos[i] = *aux2;
+            --aux2;
+        }
+
+        // Poe o elemento que estava em i na posicao 0
+        tabela->elementos[0] = aux;
+    }
+
+    return 0;
+}
