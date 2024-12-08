@@ -1,0 +1,328 @@
+1141340 filmes carregados.
+Tamanho tabela indexada: 1141340
+Tamanho tabela encadeada: 1141340
+Tempo de CPU: 1.120252
+
+--------------------------------------------------
+ID: 5
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 1821
+Tempo de CPU: 0.000011
+Filme: Four Rooms [5.8] (id=5, votos=2436)
+
+List
+Operacoes busca encadeada: 1139520
+Tempo de CPU: 0.020478
+Filme: Four Rooms [5.8] (id=5, votos=2436)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 3641
+Tempo de CPU: 0.000022
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1139519
+Tempo de CPU: 0.021482
+Filme: Four Rooms [5.8] (id=5, votos=2436)
+
+--------------------------------------------------
+ID: 9
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 46106
+Tempo de CPU: 0.000197
+Filme: Sunday in August [7.6] (id=9, votos=22)
+
+List
+Operacoes busca encadeada: 1095236
+Tempo de CPU: 0.019818
+Filme: Sunday in August [7.6] (id=9, votos=22)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 92211
+Tempo de CPU: 0.000490
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1095235
+Tempo de CPU: 0.020681
+Filme: Sunday in August [7.6] (id=9, votos=22)
+
+--------------------------------------------------
+ID: 98
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 79
+Tempo de CPU: 0.000002
+Filme: Gladiator [8.2] (id=98, votos=16962)
+
+List
+Operacoes busca encadeada: 1141262
+Tempo de CPU: 0.020483
+Filme: Gladiator [8.2] (id=98, votos=16962)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 161
+Tempo de CPU: 0.000003
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1141261
+Tempo de CPU: 0.021590
+Filme: Gladiator [8.2] (id=98, votos=16962)
+
+--------------------------------------------------
+ID: 22
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 49
+Tempo de CPU: 0.000002
+Filme: Pirates of the Caribbean: The Curse of the Black Pearl [7.8] (id=22, votos=19233)
+
+List
+Operacoes busca encadeada: 1141292
+Tempo de CPU: 0.020474
+Filme: Pirates of the Caribbean: The Curse of the Black Pearl [7.8] (id=22, votos=19233)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 103
+Tempo de CPU: 0.000002
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1141291
+Tempo de CPU: 0.021584
+Filme: Pirates of the Caribbean: The Curse of the Black Pearl [7.8] (id=22, votos=19233)
+
+--------------------------------------------------
+ID: 496
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 850
+Tempo de CPU: 0.000004
+Filme: Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan [6.8] (id=496, votos=4945)
+
+List
+Operacoes busca encadeada: 1140493
+Tempo de CPU: 0.020468
+Filme: Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan [6.8] (id=496, votos=4945)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 1703
+Tempo de CPU: 0.000011
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1140492
+Tempo de CPU: 0.021490
+Filme: Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan [6.8] (id=496, votos=4945)
+
+--------------------------------------------------
+ID: 87
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 372
+Tempo de CPU: 0.000003
+Filme: Indiana Jones and the Temple of Doom [7.3] (id=87, votos=8505)
+
+List
+Operacoes busca encadeada: 1140971
+Tempo de CPU: 0.020604
+Filme: Indiana Jones and the Temple of Doom [7.3] (id=87, votos=8505)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 749
+Tempo de CPU: 0.000005
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1140970
+Tempo de CPU: 0.021510
+Filme: Indiana Jones and the Temple of Doom [7.3] (id=87, votos=8505)
+
+--------------------------------------------------
+ID: 736108
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 1140761
+Tempo de CPU: 0.004918
+Filme: Lethargy [0.0] (id=736108, votos=0)
+
+List
+Operacoes busca encadeada: 586
+Tempo de CPU: 0.000014
+Filme: Lethargy [0.0] (id=736108, votos=0)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 2281521
+Tempo de CPU: 0.013512
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 585
+Tempo de CPU: 0.000019
+Filme: Lethargy [0.0] (id=736108, votos=0)
+
+--------------------------------------------------
+ID: 736108
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 1140760
+Tempo de CPU: 0.005020
+Filme: Lethargy [0.0] (id=736108, votos=0)
+
+List
+Operacoes busca encadeada: 1
+Tempo de CPU: 0.000001
+Filme: Lethargy [0.0] (id=736108, votos=0)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 1
+Tempo de CPU: 0.000001
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1
+Tempo de CPU: 0.000001
+Filme: Lethargy [0.0] (id=736108, votos=0)
+
+--------------------------------------------------
+ID: 734923
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 1139990
+Tempo de CPU: 0.005031
+Filme: Midnight Express in Orient [0.0] (id=734923, votos=0)
+
+List
+Operacoes busca encadeada: 1357
+Tempo de CPU: 0.000034
+Filme: Midnight Express in Orient [0.0] (id=734923, votos=0)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 2279981
+Tempo de CPU: 0.012999
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1356
+Tempo de CPU: 0.000038
+Filme: Midnight Express in Orient [0.0] (id=734923, votos=0)
+
+--------------------------------------------------
+ID: 598
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 534
+Tempo de CPU: 0.000004
+Filme: City of God [8.4] (id=598, votos=6708)
+
+List
+Operacoes busca encadeada: 1140810
+Tempo de CPU: 0.020690
+Filme: City of God [8.4] (id=598, votos=6708)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 1077
+Tempo de CPU: 0.000007
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1140809
+Tempo de CPU: 0.021569
+Filme: City of God [8.4] (id=598, votos=6708)
+
+--------------------------------------------------
+ID: 29874
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 84451
+Tempo de CPU: 0.000384
+Filme: The Dracula Dynasty [5.1] (id=29874, votos=9)
+
+List
+Operacoes busca encadeada: 1056897
+Tempo de CPU: 0.019087
+Filme: The Dracula Dynasty [5.1] (id=29874, votos=9)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 168905
+Tempo de CPU: 0.000989
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1056896
+Tempo de CPU: 0.019975
+Filme: The Dracula Dynasty [5.1] (id=29874, votos=9)
+
+--------------------------------------------------
+ID: 8274
+
+Busca com Transposição
+
+Vector
+Operacoes busca sequencial: 2231
+Tempo de CPU: 0.000012
+Filme: American Pie Presents: Band Camp [5.5] (id=8274, votos=1938)
+
+List
+Operacoes busca encadeada: 1139116
+Tempo de CPU: 0.020443
+Filme: American Pie Presents: Band Camp [5.5] (id=8274, votos=1938)
+
+Busca movendo para o início
+
+Vector
+Operacoes busca sequencial: 4469
+Tempo de CPU: 0.000026
+Filme: title [0.0] (id=0, votos=0)
+
+List
+Operacoes busca encadeada: 1139115
+Tempo de CPU: 0.021615
+Filme: American Pie Presents: Band Camp [5.5] (id=8274, votos=1938)
