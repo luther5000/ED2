@@ -12,7 +12,8 @@ void RemoveQuebraLinha(char *str){
         str[strlen(str) - 1] = '\0';
 }
 
-int CarregaArquivo(const char *arq, tTabelaIdx *tabIdx, tTabelaEnc **tabEnc){
+int CarregaArquivo(const char *arq, tTabelaIdx *tabIdx, tTabelaEnc **tabEnc,
+                    tTabelaIdx *tabIdx2, tTabelaEnc **tabEnc2){
     FILE *fp;
     char linha[MAX_LINHA+1], *id, *titulo, *avaliacao, *votos, *virg, *aspas;
     int cont;
@@ -60,6 +61,8 @@ int CarregaArquivo(const char *arq, tTabelaIdx *tabIdx, tTabelaEnc **tabEnc){
             //printf("Filme: %s [%s] (id=%s, votos=%s)\n", titulo, avaliacao, id, votos);
             AcrescentaElementoIdx(tabIdx, &filme);
             AcrescentaElementoEnc(tabEnc, &filme);
+            AcrescentaElementoIdx(tabIdx2, &filme);
+            AcrescentaElementoEnc(tabEnc2, &filme);
         }
     }
 
@@ -71,14 +74,23 @@ int CarregaArquivo(const char *arq, tTabelaIdx *tabIdx, tTabelaEnc **tabEnc){
 int main(void){
     tTabelaIdx *tabIdx;
     tTabelaEnc *tabEnc;
+    tTabelaIdx *tabIdx2;
+    tTabelaEnc *tabEnc2;
+
     int q, mat;
     clock_t inicio, fim;
     double tempoDeCpu;
 
+    int ids[] = {5, 9, 98, 22, 496, 87, 736108, 736108, 734923,
+                598, 29874, 8274};
+
+
     tabIdx = CriaTabelaIdx();
     CriaTabelaEnc(&tabEnc);
+    tabIdx2 = CriaTabelaIdx();
+    CriaTabelaEnc(&tabEnc2);
     inicio = clock();
-    q = CarregaArquivo("TMDB_movie_dataset_v11.csv", tabIdx, &tabEnc);
+    q = CarregaArquivo("TMDB_movie_dataset_v11.csv", tabIdx, &tabEnc, tabIdx2, &tabEnc2);
     fim = clock();
     tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
 
@@ -88,12 +100,14 @@ int main(void){
     printf("Tempo de CPU: %lf\n", tempoDeCpu);
 
 
-   while(1){
-        printf("\nID: ");
-        scanf("%d", &mat);
+   for (int i = 0; i < 12; ++i){
+       printf("\n--------------------------------------------------");
+        printf("\nID: %d", ids[i]);
+        printf("\n\nBusca com Transposição\n");
 
+        printf("\nVector\n");
         inicio = clock();
-        int ind = BuscaSequencial(tabIdx, mat);
+        int ind = buscaTransposicao(tabIdx, ids[i]);
         fim = clock();
         tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
         printf("Operacoes busca sequencial: %d\n", QuantOperacoes());
@@ -105,8 +119,9 @@ int main(void){
             ImprimeFilme(&filme);
         }
 
+        printf("\nList\n");
         inicio = clock();
-        tFilme * filme = BuscaSequencialEnc(tabEnc, mat);
+        tFilme * filme = buscaTransposicaoEnc(&tabEnc, ids[i]);
         fim = clock();
         tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
         printf("Operacoes busca encadeada: %d\n", QuantOperacoesEnc());
@@ -116,6 +131,34 @@ int main(void){
         }else{
             ImprimeFilme(filme);
         }
+
+       printf("\nBusca movendo para o início\n");
+       printf("\nVector\n");
+       inicio = clock();
+       ind = buscaMovInicio(tabIdx2, ids[i]);
+       fim = clock();
+       tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
+       printf("Operacoes busca sequencial: %d\n", QuantOperacoes());
+       printf("Tempo de CPU: %lf\n", tempoDeCpu);
+       if (ind < 0){
+           puts("filme nao encontrado");
+       }else{
+           tFilme filme = ObtemElementoIdx(tabIdx, ind);
+           ImprimeFilme(&filme);
+       }
+
+       printf("\nList\n");
+       inicio = clock();
+       filme = buscaMovInicioEnc(&tabEnc, ids[i]);
+       fim = clock();
+       tempoDeCpu = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
+       printf("Operacoes busca encadeada: %d\n", QuantOperacoesEnc());
+       printf("Tempo de CPU: %lf\n", tempoDeCpu);
+       if (!filme){
+           puts("filme nao encontrado");
+       }else{
+           ImprimeFilme(filme);
+       }
    }
 
     //DestroiTabelaEnc(tabEnc);
