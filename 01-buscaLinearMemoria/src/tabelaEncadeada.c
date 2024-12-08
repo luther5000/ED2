@@ -117,9 +117,9 @@ int QuantOperacoesEnc(){
     return qOperacoes;
 }
 
-tDado *buscaTransposicaoEnc(tTabelaEnc *tabela, int chave) {
+tDado *buscaTransposicaoEnc(tTabelaEnc **tabela, int chave) {
     qOperacoes = 0;
-    tTabelaEnc *ant = NULL, *ant2 = NULL, *atual = tabela;
+    tTabelaEnc *ant = NULL, *ant2 = NULL, *atual = *tabela;
 
     while (atual != NULL) {
         ++qOperacoes;
@@ -141,19 +141,19 @@ tDado *buscaTransposicaoEnc(tTabelaEnc *tabela, int chave) {
     if (ant2 == NULL) {
         ant->prox = atual->prox;
         atual->prox = ant;
-        tabela = atual;
+        *tabela = atual;
     } else {
-        ant->prox = atual;
-        ant2->prox = atual->prox;
-        atual->prox = ant2;
+        ant->prox = atual->prox;
+        ant2->prox = atual;
+        atual->prox = ant;
     }
 
     return &atual->dado;
 }
 
-tDado *buscaMovInicioEnd(tTabelaEnc *tabela, int chave) {
+tDado *buscaMovInicioEnc(tTabelaEnc **tabela, int chave) {
     qOperacoes = 0;
-    tTabelaEnc *atual = tabela, *ant = NULL;
+    tTabelaEnc *atual = *tabela, *ant = NULL;
 
     while (atual != NULL) {
         ++qOperacoes;
@@ -172,8 +172,8 @@ tDado *buscaMovInicioEnd(tTabelaEnc *tabela, int chave) {
         return &atual->dado;
 
     ant->prox = atual->prox;
-    atual->prox = tabela->prox;
-    tabela = atual;
+    atual->prox = *tabela;
+    *tabela = atual;
 
     return &atual->dado;
 }

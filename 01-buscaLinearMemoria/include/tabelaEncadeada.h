@@ -15,6 +15,6 @@ extern void AcrescentaElementoEnc(tTabelaEnc ** tabela, const tDado *elemento);
 extern tDado * BuscaSequencialEnc(tTabelaEnc *tab, int chave);
 extern tDado * BuscaDedilhadaEnc(tTabelaEnc *tab, int chave);
 extern int QuantOperacoesEnc();
-extern tDado *buscaTransposicaoEnc(tTabelaEnc *tabela, int chave);
-extern tDado *buscaMovInicioEnc(tTabelaEnc *tabela, int chave);
+extern tDado *buscaTransposicaoEnc(tTabelaEnc **tabela, int chave);
+extern tDado *buscaMovInicioEnc(tTabelaEnc **tabela, int chave);
 #endif
