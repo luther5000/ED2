@@ -79,6 +79,14 @@ public:
         return vet[index];
     }
 
+    const T& operator[](ulong index) const{
+        if (index > tamAtual) {
+            throw out_of_range("Índice fora dos limites do vetor.");
+        }
+
+        return vet[index];
+    }
+
 };
 
 #endif //VETOR_HPP
