@@ -9,12 +9,13 @@ using namespace std;
 #define CUSTOMTYPES_HPP
 
 typedef unsigned short usint;
+typedef unsigned int uint;
+typedef unsigned long long ullong;
+typedef unsigned long ulong;
 
-typedef struct sudoku {
-    string s;
-    usint soma;
-    usint somaLinha;
-    usint somaColuna;
-} sudoku_t;
+typedef struct sudoku_info {
+    ullong chave;
+    ulong indice;
+} sudoku_info_t;
 
 #endif //CUSTOMTYPES_HPP

@@ -8,4 +8,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 include_directories(include)
 
 add_executable(sudoku.exe src/main.cpp
-            src/vetor.cpp)
+)
