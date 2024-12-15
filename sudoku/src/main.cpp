@@ -1,11 +1,18 @@
+#include <vector>
+
 #include "vetor.hpp"
+#include "sort.hpp"
 
 
 int main(){
-    vetor_impl<sudoku_t> vet;
-    for (int i = 0; i < 10; ++i){
-        sudoku_t s = {std::to_string(i), 0, 0, 0};
-        vet.insere(s);
+    vetor<sudoku_info_t> vet;
+    for (ulong i = 10; i > 0; --i){
+            sudoku_info_t s = {i, i};
+            vet.insere(s);
         }
     vet.print();
+    printf("\n");
+    quick_sort(vet, 0, 9);
+    vet.print();
+
 }

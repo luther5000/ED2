@@ -1,6 +1,8 @@
 //
 // Created by lutero on 14/12/24.
 //
+#include <stdexcept>
+
 #include "customTypes.hpp"
 
 #ifndef VETOR_HPP
@@ -10,8 +12,8 @@ template<typename T>
 class vetor{
 
     T* vet;
-    uint tamAtual;
-    uint tamMax;
+    ulong tamAtual;
+    ulong tamMax;
 
     void redimensionar() {
         tamMax *= 2;
@@ -46,7 +48,16 @@ public:
         ++tamAtual;
     }
 
-    uint size() const {
+    void swap(ulong i, ulong j) {
+        if (i == j || i > tamAtual || j > tamAtual)
+            return;
+
+        T aux = vet[j];
+        vet[j] = vet[i];
+        vet[i] = aux;
+    }
+
+    ulong size() const {
         return tamAtual;
     }
 
@@ -56,8 +67,16 @@ public:
 
     void print() {
         for (uint i = 0; i < tamAtual; ++i) {
-            printf("%d: %s\n", i, vet[i].s.c_str());
+            printf("%d: %lld\n", i, vet[i].chave);
         }
+    }
+
+    T& operator[](ulong index) {
+        if (index > tamAtual) {
+            throw out_of_range("Índice fora dos limites do vetor.");
+        }
+
+        return vet[index];
     }
 
 };
