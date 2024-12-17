@@ -33,7 +33,7 @@ public:
         tamMax = 0;
     }
 
-    void insere(const T& sudoku) {
+    void insere(const T sudoku) {
         if (tamMax == 0) {
             vet = new T[1];
             tamMax = 1;
@@ -85,6 +85,14 @@ public:
         }
 
         return vet[index];
+    }
+
+    T* operator->() {
+        return dados;
+    }
+
+    const T* operator->() const {
+        return dados;
     }
 
 };

@@ -5,6 +5,7 @@
 #include "vetor.hpp"
 #include "customTypes.hpp"
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -19,9 +20,8 @@ typedef struct {
 
 class Sudoku {
 private:
-    ullong geraChave(string s);
 
-    ulong hash(ullong chave);
+    ullong geraChave(const vetor<int>& nums);
 
 public:
     vetor<sudoku_info_t> *sudoku_infos;
@@ -29,9 +29,9 @@ public:
 
     explicit Sudoku();
 
-    void adicionaSudoku(string s);
+    void adicionaSudoku(const file_line_t& info);
 
-    string buscaSudoku(string s);
+    string* buscaSudoku(const file_line_t& info);
 };
 
 

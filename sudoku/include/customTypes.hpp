@@ -2,6 +2,7 @@
 // Created by lutero on 14/12/24.
 //
 #include <string>
+#include <vetor.hpp>
 
 using namespace std;
 
@@ -17,5 +18,11 @@ typedef struct sudoku_info {
     ullong chave;
     ulong indice;
 } sudoku_info_t;
+
+typedef struct {
+    string entrada;
+    string saida;
+    vetor<int>* nums;
+} file_line_t;
 
 #endif //CUSTOMTYPES_HPP
