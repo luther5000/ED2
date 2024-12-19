@@ -5,7 +5,7 @@
 #include "sort.hpp"
 
 
-void quick_sort(vetor<sudoku_info_t> &vet, const ulong inicio, const ulong fim) {
+void quick_sort(vetor<vetor<char>> &vet, const ulong inicio, const ulong fim) {
     ulong q = 0;
     if (inicio < fim) {
         q = partition(vet, inicio, fim);
@@ -14,14 +14,15 @@ void quick_sort(vetor<sudoku_info_t> &vet, const ulong inicio, const ulong fim) 
     }
 }
 
-ulong partition(vetor<sudoku_info_t> &vet, ulong i, ulong j) {
-    ullong pivo = vet[i].chave;
+ulong partition(vetor<vetor<char>> &vet, ulong i, ulong j) {
+    vetor<char> pivo = vet[i];
 
     while (true) {
-        while (vet[i].chave < pivo)
+        while (compara2(vet[i], pivo) == -1)
             ++i;
 
-        while (vet[j].chave > pivo)
+
+        while (compara2(vet[j], pivo) == 1)
             --j;
 
         if (i >= j)
@@ -31,4 +32,13 @@ ulong partition(vetor<sudoku_info_t> &vet, ulong i, ulong j) {
     }
 }
 
+int compara2(const vetor<char> &vet, const vetor<char>& entrada) {
+    for (ulong i = 0; i < vet.size(); ++i) {
+        if (vet[i] > entrada[i])
+            return 1;
 
+        if (vet[i] < entrada[i])
+            return -1;
+    }
+    return 0;
+}

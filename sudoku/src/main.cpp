@@ -1,25 +1,35 @@
-#include <vector>
+#include <string>
+#include <ios>
+#include <iostream>
 
-#include "vetor.hpp"
-#include "sort.hpp"
-#include "binary_search.hpp"
-
+#include "file_parser.hpp"
 
 int main(){
-    vetor<sudoku_info_t> vet;
-    for (ulong i = 0; i < 10; ++i){
-            sudoku_info_t s = {i, i};
-            vet.insere(s);
+    Sudoku *sudokus = parse_file("teste.csv");
+
+    while (true) {
+        string entrada;
+
+        printf("Qual o sudoku que você deseja buscar?\n");
+        getline(cin, entrada);
+        printf("%s", entrada.c_str());
+
+        if (entrada.empty())
+            return 0;
+
+        vetor<char> *saida = sudokus->buscaSudoku(parse_line(entrada).entrada);
+
+        if (saida == nullptr)
+            printf("\nSudoku não encontrado!\n"
+                   "-------------------------------------------------\n");
+        else {
+            printf("Solução para o sudoku informado:\n");
+            for (ulong i = 0; i < saida->size(); ++i)
+                cout << (*saida)[i];
+
+            printf("\n-------------------------------------------------\n");
+            saida->delete_vetor();
         }
-    vet.print();
-    printf("\n");
-    quick_sort(vet, 0, 9);
-    vet.print();
-
-    long n = busca_binaria(vet, 7);
-
-    if (n == -1)
-        printf("Não foi encontrado");
-    else
-        printf("%lld", vet[n].chave);
+    }
 }
+//195

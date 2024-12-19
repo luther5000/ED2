@@ -3,7 +3,7 @@
 //
 #include <stdexcept>
 
-#include "customTypes.hpp"
+using namespace std;
 
 #ifndef VETOR_HPP
 #define VETOR_HPP
@@ -33,16 +33,18 @@ public:
         tamMax = 0;
     }
 
-    void insere(const T sudoku) {
+    void insere(const T& sudoku) {
         if (tamMax == 0) {
             vet = new T[1];
             tamMax = 1;
         }
 
         if (tamAtual == tamMax) {
+            //printf("redimensiona\n");
             redimensionar();
         }
 
+        //printf("Inserindo\n");
         vet[tamAtual] = sudoku;
 
         ++tamAtual;
@@ -61,6 +63,11 @@ public:
         return tamAtual;
     }
 
+    ~vetor() {
+        //printf("Destruir\n");
+        delete[] vet;
+    }
+
     void delete_vetor() {
         delete[] vet;
     }
@@ -69,6 +76,21 @@ public:
         for (uint i = 0; i < tamAtual; ++i) {
             printf("%d: %lld\n", i, vet[i].chave);
         }
+    }
+
+    vetor& operator=(const vetor& other) {
+        if (this != &other) {
+            delete[] vet;
+
+            vet = new T[other.tamAtual];
+            tamMax = other.tamMax;
+            tamAtual = other.tamAtual;
+
+            for (ulong i = 0; i < other.tamAtual; ++i) {
+                vet[i] = other.vet[i];
+            }
+        }
+        return *this;
     }
 
     T& operator[](ulong index) {
@@ -88,11 +110,11 @@ public:
     }
 
     T* operator->() {
-        return dados;
+        return vet;
     }
 
     const T* operator->() const {
-        return dados;
+        return vet;
     }
 
 };

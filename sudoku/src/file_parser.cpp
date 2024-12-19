@@ -12,50 +12,43 @@ Sudoku *parse_file(const string& endereco) {
         perror("Erro ao abrir arquivo\n");
 
     auto *sudoku = new Sudoku;
-    string linha = "";
+    string linha;
+    getline(file, linha);
+    ulong i = 0;
+
     while (getline(file, linha)) {
-        file_line_t* info = parse_line(linha);
 
-        if (info == nullptr)
-            perror("Erro na leitura do arquivo\n");
+        //printf("%ld\n", i);
+        auto info = parse_line(linha);
+        //printf("%c %c\n", info.entrada[1], info.saida[1]);
 
-        sudoku->adicionaSudoku(*info);
-        delete info;
+        sudoku->adicionaSudoku(info.entrada, info.saida);
+        //printf("passsou\n");
+
+        ++i;
     }
 
     return sudoku;
 }
 
-file_line_t *parse_line(string linha) {
-    vetor<string> *sudokus = split(linha, ',');
-    istringstream stream((*sudokus)[0]);
-    auto *nums = new vetor<int>;
+file_line_t parse_line(const string& linha) {
+    vetor<char> entrada;
+    vetor<char> saida;
 
-    string palavra;
-    while (stream >> palavra) {
-        nums->insere(stoi(palavra));
+    int i = 0;
+    while (i < 81) {
+        entrada.insere(linha[i]);
+        ++i;
     }
-
-    delete sudokus;
-
-    return new file_line_t{(*sudokus)[0], (*sudokus)[1], nums};
-}
-
-vetor<string> *split(const string &s, const char a) {
-    auto *vet = new vetor<string>;
-
-    ulong i = 0, j = 0;
-
-    while (i < s.size()) {
-        if (s[i] == a) {
-            vet->insere(s.substr(j, i));
-            j = i + 1;
-        }
-
+    ++i;
+    while (i < 163) {
+        saida.insere(linha[i]);
         ++i;
     }
 
-    return vet;
+    file_line_t f;
+    f.entrada = entrada;
+    f.saida = saida;
+
+    return f;
 }
-
-
