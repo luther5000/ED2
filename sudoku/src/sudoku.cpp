@@ -8,19 +8,20 @@
 
 Sudoku::Sudoku() = default;
 
-void Sudoku::adicionaSudoku(const vetor<char>& entrada, const vetor<char>& saida) {
+void Sudoku::adicionaSudoku(const sudoku_t& sudoku) {
     //printf("dentrou de sudoku\n");
-    this->entrada.insere(entrada);
-    this->saida.insere(saida);
+    this->s.insere(sudoku);
+
     //printf("saindo de sudoku\n");
 }
 
 vetor<char> *Sudoku::buscaSudoku(const vetor<char>& entrada) {
-    long indice = busca_binaria(this->entrada, entrada);
+    long indice = busca_binaria(this->s, entrada);
 
+    printf("%ld\n", indice);
     if (indice == -1) {
         return nullptr;
     }
 
-    return &saida[indice];
+    return &s[indice].saida;
 }

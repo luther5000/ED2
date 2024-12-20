@@ -19,12 +19,11 @@ private:
     ullong geraChave(const vetor<int>& nums);
 
 public:
-    vetor<vetor<char>> entrada;
-    vetor<vetor<char>> saida;
+    vetor<sudoku_t> s;
 
     explicit Sudoku();
 
-    void adicionaSudoku(const vetor<char>& entrada, const vetor<char>& saida);
+    void adicionaSudoku(const sudoku_t& sudoku);
 
     vetor<char> *buscaSudoku(const vetor<char>& entrada);
 };

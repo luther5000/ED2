@@ -33,6 +33,21 @@ public:
         tamMax = 0;
     }
 
+    vetor(ulong tam) {
+        vet = new T[tam];
+        tamAtual = 0;
+        tamMax = 0;
+    }
+
+    vetor(const vetor& outro) {
+        vet = new T[outro.tamMax];
+        tamMax = outro.tamMax;
+        tamAtual = outro.tamAtual;
+
+        for (ulong i = 0; i < outro.tamAtual; ++i)
+            vet[i] = outro.vet[i];
+    }
+
     void insere(const T& sudoku) {
         if (tamMax == 0) {
             vet = new T[1];
@@ -40,11 +55,9 @@ public:
         }
 
         if (tamAtual == tamMax) {
-            //printf("redimensiona\n");
             redimensionar();
         }
 
-        //printf("Inserindo\n");
         vet[tamAtual] = sudoku;
 
         ++tamAtual;
@@ -64,7 +77,6 @@ public:
     }
 
     ~vetor() {
-        //printf("Destruir\n");
         delete[] vet;
     }
 

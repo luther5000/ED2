@@ -18,11 +18,15 @@ Sudoku *parse_file(const string& endereco) {
 
     while (getline(file, linha)) {
 
-        //printf("%ld\n", i);
+        printf("%ld\n", i);
         auto info = parse_line(linha);
         //printf("%c %c\n", info.entrada[1], info.saida[1]);
 
-        sudoku->adicionaSudoku(info.entrada, info.saida);
+        for (ulong j = 0; j < info.entrada.size(); ++j)
+            cout << info.entrada[j];
+        cout << endl;
+
+        sudoku->adicionaSudoku(info);
         //printf("passsou\n");
 
         ++i;
@@ -31,7 +35,7 @@ Sudoku *parse_file(const string& endereco) {
     return sudoku;
 }
 
-file_line_t parse_line(const string& linha) {
+sudoku_t parse_line(const string& linha) {
     vetor<char> entrada;
     vetor<char> saida;
 
@@ -46,7 +50,7 @@ file_line_t parse_line(const string& linha) {
         ++i;
     }
 
-    file_line_t f;
+    sudoku_t f;
     f.entrada = entrada;
     f.saida = saida;
 

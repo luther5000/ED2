@@ -16,7 +16,7 @@ typedef unsigned long ulong;
 typedef struct {
     vetor<char> entrada;
     vetor<char> saida;
-} file_line_t;
+} sudoku_t;
 
 
 #endif //CUSTOMTYPES_HPP

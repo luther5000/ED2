@@ -15,6 +15,6 @@ using namespace std;
 
 Sudoku* parse_file(const string& endereco);
 
-file_line_t parse_line(const string& linha);
+sudoku_t parse_line(const string& linha);
 
 #endif //FILE_PARSER_HPP
