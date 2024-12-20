@@ -18,16 +18,10 @@ Sudoku *parse_file(const string& endereco) {
 
     while (getline(file, linha)) {
 
-        printf("%ld\n", i);
+        //printf("%ld\n", i);
         auto info = parse_line(linha);
-        //printf("%c %c\n", info.entrada[1], info.saida[1]);
-
-        for (ulong j = 0; j < info.entrada.size(); ++j)
-            cout << info.entrada[j];
-        cout << endl;
 
         sudoku->adicionaSudoku(info);
-        //printf("passsou\n");
 
         ++i;
     }

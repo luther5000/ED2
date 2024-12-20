@@ -6,8 +6,7 @@
 #include "file_parser.hpp"
 
 int main(){
-    Sudoku *sudokus = parse_file("teste.csv");
-    printf("quick_sort entrando %ld\n", sudokus->s.size());
+    Sudoku *sudokus = parse_file("sudoku.csv");
     quick_sort(sudokus->s, 0, sudokus->s.size() - 1);
 
     while (true) {
@@ -15,7 +14,6 @@ int main(){
 
         printf("Qual o sudoku que você deseja buscar?\n");
         getline(cin, entrada);
-        printf("%s\n", entrada.c_str());
 
         if (entrada.empty())
             return 0;
@@ -26,7 +24,7 @@ int main(){
             printf("\nSudoku não encontrado!\n"
                    "-------------------------------------------------\n");
         else {
-            printf("Solução para o sudoku informado:\n");
+            printf("\nSolução para o sudoku informado:\n");
             for (ulong i = 0; i < saida->size(); ++i)
                 cout << (*saida)[i];
 

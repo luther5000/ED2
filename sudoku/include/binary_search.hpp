@@ -13,6 +13,4 @@ long busca_binaria(const vetor<sudoku_t>& vet, const vetor<char>& entrada);
 
 int compara(const vetor<char> &vet, const vetor<char>& entrada);
 
-void print_vetor(const vetor<char>& vet);
-
 #endif //BINARY_SEARCH_HPP
