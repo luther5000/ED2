@@ -6,8 +6,8 @@
 #include "file_parser.hpp"
 
 int main(){
-    Sudoku *sudokus = parse_file("sudoku.csv");
-    quick_sort(sudokus->s, 0, sudokus->s.size() - 1);
+    Sudoku *sudokus = parse_file("sudoku.csv", 9000000);
+    quick_sort(sudokus->info, 0, sudokus->s.size() - 1);
 
     while (true) {
         string entrada;

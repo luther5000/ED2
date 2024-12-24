@@ -4,24 +4,20 @@
 
 #include "binary_search.hpp"
 
-long busca_binaria(const vetor<sudoku_t>& vet, const vetor<char>& entrada) {
-    long inicio = 0, meio = 0, fim = vet.size() - 1;
+long busca_binaria(const vetor<sudoku_info_t>& chaves, ullong chave) {
+    long inicio = 0, meio = 0, fim = chaves.size() - 1;
 
     while (inicio <= fim) {
         meio = (inicio + fim) / 2;
 
-        switch (compara(vet[meio].entrada, entrada)) {
-            case 1:
-                fim = meio -1;
-                break;
+        if (chaves[meio].chave == chave)
+            return meio;
 
-            case 0:
-                return meio;
+        if (chaves[meio].chave > chave)
+            fim = meio -1;
 
-            case -1:
-                inicio = meio + 1;
-                break;
-        }
+        if (chaves[meio].chave < chave)
+            inicio = meio + 1;
     }
 
     return -1;

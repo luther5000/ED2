@@ -5,32 +5,32 @@
 #include "sort.hpp"
 
 
-void quick_sort(vetor<sudoku_t> &vet, const ulong inicio, const ulong fim) {
+void quick_sort(vetor<sudoku_info_t>& indice, const ulong inicio, const ulong fim) {
     ulong q = 0;
     if (inicio < fim) {
-        q = partition(vet, inicio, fim);
-        quick_sort(vet, inicio, q);
-        quick_sort(vet, q + 1, fim);
+        q = partition(indice, inicio, fim);
+        quick_sort(indice, inicio, q);
+        quick_sort(indice, q + 1, fim);
     }
 }
 
-ulong partition(vetor<sudoku_t> &vet, ulong i, ulong j) {
-    vetor<char> pivo = vet[i].entrada;
+ulong partition(vetor<sudoku_info_t>& indice, ulong i, ulong j) {
+    ullong pivo = indice[i].chave;
 
     while (true) {
-        while (compara2(vet[i].entrada, pivo) == -1) {
+        while (indice[i].chave < pivo) {
             ++i;
         }
 
 
-        while (compara2(vet[j].entrada, pivo) == 1 && j > 0) {
+        while (indice[j].chave > pivo && j > 0) {
             --j;
         }
 
         if (i >= j)
             return j;
 
-        vet.swap(i, j);
+        indice.swap(i, j);
     }
 }
 

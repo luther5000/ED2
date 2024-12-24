@@ -33,6 +33,18 @@ public:
         tamMax = 0;
     }
 
+    void redimensionar(ulong tam) {
+        T* aux = new T[tam];
+
+        for (ulong i = 0; i < tamAtual && i < tam; ++i) {
+            aux[i] = vet[i];
+        }
+
+        vet = aux;
+        tamAtual = tamAtual < tam ? tamAtual : tam;
+        tamMax = tam;
+    }
+
     vetor(ulong tam) {
         vet = new T[tam];
         tamAtual = 0;

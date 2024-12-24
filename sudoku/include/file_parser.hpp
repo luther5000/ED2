@@ -13,7 +13,7 @@ using namespace std;
 #ifndef FILE_PARSER_HPP
 #define FILE_PARSER_HPP
 
-Sudoku* parse_file(const string& endereco);
+Sudoku* parse_file(const string& endereco, ulong tam);
 
 sudoku_t parse_line(const string& linha);
 

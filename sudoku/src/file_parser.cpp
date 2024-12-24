@@ -4,24 +4,24 @@
 
 #include "file_parser.hpp"
 
-Sudoku *parse_file(const string& endereco) {
+Sudoku *parse_file(const string& endereco, ulong tam) {
     ifstream file;
     file.open(endereco, ios::in);
 
     if (!file.is_open())
         perror("Erro ao abrir arquivo\n");
 
-    auto *sudoku = new Sudoku;
+    auto *sudoku = new Sudoku(tam);
     string linha;
     getline(file, linha);
-    ulong i = 0;
+    uint i = 0;
 
     while (getline(file, linha)) {
 
-        //printf("%ld\n", i);
+        printf("%d\n", i);
         auto info = parse_line(linha);
 
-        sudoku->adicionaSudoku(info);
+        sudoku->adicionaSudoku(info, {i, Sudoku::geraChave(info.entrada)});
 
         ++i;
     }

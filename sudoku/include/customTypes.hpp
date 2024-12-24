@@ -18,5 +18,10 @@ typedef struct {
     vetor<char> saida;
 } sudoku_t;
 
+typedef struct {
+    uint indice;
+    ullong chave;
+} sudoku_info_t;
+
 
 #endif //CUSTOMTYPES_HPP

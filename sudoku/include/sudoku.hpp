@@ -14,18 +14,19 @@ using namespace std;
 
 
 class Sudoku {
-private:
-
-    ullong geraChave(const vetor<int>& nums);
-
 public:
     vetor<sudoku_t> s;
+    vetor<sudoku_info_t> info;
 
-    explicit Sudoku();
+    explicit Sudoku(ulong tam);
 
-    void adicionaSudoku(const sudoku_t& sudoku);
+    void adicionaSudoku(const sudoku_t& sudoku, const sudoku_info_t& info);
 
     vetor<char> *buscaSudoku(const vetor<char>& entrada);
+
+    static ullong geraChave(const vetor<char>& entrada);
+
+    static bool compara(const vetor<char>& a, const vetor<char>& b);
 };
 
 
