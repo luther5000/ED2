@@ -1,23 +1,26 @@
-//
-// Created by lutero on 15/12/24.
-//
-
 #include "binary_search.hpp"
 
-long busca_binaria(const vetor<sudoku_info_t>& chaves, ullong chave) {
-    long inicio = 0, meio = 0, fim = chaves.size() - 1;
+long busca_binaria(const vetor<sudoku_t>& s, const vetor<ulong>& indice, const vetor<char>& entrada) {
+    long inicio = 0, meio = 0, fim = indice.size() - 1;
 
     while (inicio <= fim) {
         meio = (inicio + fim) / 2;
 
-        if (chaves[meio].chave == chave)
-            return meio;
+        switch (compara(s[indice[meio]].entrada, entrada)) {
+            case 0:
+                return meio;
 
-        if (chaves[meio].chave > chave)
-            fim = meio -1;
+            case -1:
+                inicio = meio + 1;
+                break;
 
-        if (chaves[meio].chave < chave)
-            inicio = meio + 1;
+            case 1:
+                fim = meio -1;
+                break;
+        
+            default:
+                break;
+        }   
     }
 
     return -1;

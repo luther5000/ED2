@@ -7,6 +7,9 @@
 #include <fstream>
 #include <memory>
 #include <iostream>
+#include <string.h>
+
+#define MAX_LINHA 163
 
 using namespace std;
 
@@ -15,6 +18,6 @@ using namespace std;
 
 Sudoku* parse_file(const string& endereco, ulong tam);
 
-sudoku_t parse_line(const string& linha);
+sudoku_t parse_line(char *linha);
 
 #endif //FILE_PARSER_HPP

@@ -1,6 +1,3 @@
-//
-// Created by lutero on 14/12/24.
-//
 #include <stdexcept>
 
 using namespace std;
@@ -98,8 +95,17 @@ public:
 
     void print() {
         for (uint i = 0; i < tamAtual; ++i) {
-            printf("%d: %lld\n", i, vet[i].chave);
+            printf("%c", vet[i]);
         }
+        printf("\n");
+    }
+
+    T* data_ptr(){
+        return vet;
+    }
+
+    const T* data_ptr() const {
+        return vet;
     }
 
     vetor& operator=(const vetor& other) {

@@ -1,16 +1,12 @@
-//
-// Created by lutero on 15/12/24.
-//
-
 #include "customTypes.hpp"
 #include "vetor.hpp"
 
 #ifndef SORT_HPP
 #define SORT_HPP
 
-void quick_sort(vetor<sudoku_info_t>& indice, ulong inicio, ulong fim);
+void quick_sort(vetor<sudoku_t>& v, vetor<ulong>& indice, long inicio, long fim);
 
-ulong partition(vetor<sudoku_info_t>& indice, ulong inicio, ulong fim);
+ulong partition(vetor<sudoku_t>& v, vetor<ulong>& indice, long inicio, long fim);
 
 int compara2(const vetor<char>& vet, const vetor<char>& entrada);
 

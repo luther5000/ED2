@@ -1,35 +1,35 @@
-//
-// Created by lutero on 15/12/24.
-//
-
 #include "file_parser.hpp"
 
 Sudoku *parse_file(const string& endereco, ulong tam) {
-    ifstream file;
-    file.open(endereco, ios::in);
+    FILE *file = fopen(endereco.c_str(), "r");
 
-    if (!file.is_open())
+    if (!file)
         perror("Erro ao abrir arquivo\n");
 
     auto *sudoku = new Sudoku(tam);
-    string linha;
-    getline(file, linha);
+    char linha[MAX_LINHA + 2];
+    fgets(linha, sizeof(linha), file);
     uint i = 0;
+    clock_t inicio, fim;
 
-    while (getline(file, linha)) {
+    inicio = clock();
+    while (fgets(linha, sizeof(linha), file)) {
+        linha[strcspn(linha, "\n")] = '\0';
 
-        printf("%d\n", i);
         auto info = parse_line(linha);
-
-        sudoku->adicionaSudoku(info, {i, Sudoku::geraChave(info.entrada)});
+        
+        sudoku->adicionaSudoku(info, i);
 
         ++i;
     }
+    
+    fim = clock();
+    printf("Tempo para leitura do arquivo: %lf\n", ((double)(fim - inicio) / CLOCKS_PER_SEC));
 
     return sudoku;
 }
 
-sudoku_t parse_line(const string& linha) {
+sudoku_t parse_line(char* linha) {
     vetor<char> entrada;
     vetor<char> saida;
 

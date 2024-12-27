@@ -1,7 +1,3 @@
-//
-// Created by lutero on 15/12/24.
-//
-
 #include "customTypes.hpp"
 #include "vetor.hpp"
 #include <string>
@@ -16,15 +12,13 @@ using namespace std;
 class Sudoku {
 public:
     vetor<sudoku_t> s;
-    vetor<sudoku_info_t> info;
+    vetor<ulong> info;
 
     explicit Sudoku(ulong tam);
 
-    void adicionaSudoku(const sudoku_t& sudoku, const sudoku_info_t& info);
+    void adicionaSudoku(const sudoku_t& sudoku, const ulong indice);
 
     vetor<char> *buscaSudoku(const vetor<char>& entrada);
-
-    static ullong geraChave(const vetor<char>& entrada);
 
     static bool compara(const vetor<char>& a, const vetor<char>& b);
 };

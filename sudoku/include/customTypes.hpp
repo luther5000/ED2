@@ -1,6 +1,3 @@
-//
-// Created by lutero on 14/12/24.
-//
 #include <string>
 #include "vetor.hpp"
 using namespace std;
@@ -17,11 +14,6 @@ typedef struct {
     vetor<char> entrada;
     vetor<char> saida;
 } sudoku_t;
-
-typedef struct {
-    uint indice;
-    ullong chave;
-} sudoku_info_t;
 
 
 #endif //CUSTOMTYPES_HPP
